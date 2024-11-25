@@ -8,21 +8,21 @@ class Knight (Thread):
         self.power = power
 
     def run (self):
-        print(f'{self.name}, на нас напали!')
         vrag = 100
         days = 0
-        while vrag > 0:
-            time.sleep(1)
-            days += 1
+        print(f'{self.name}, на нас напали!')
+        for i in range(vrag):
+            days+=1
             vrag -= self.power
-            if vrag < 0:
-                vrag = 0
             print(f'{self.name} сражается {days} суток, осталось {vrag} воинов врага.')
-        print(f'{self.name} одержал победу спустя {days} дней(я)!')
-
+            time.sleep(1)
+            if vrag <= 0:
+                return print(f'{self.name} одержал победу спустя {days} дней(я)!')
 first_knight = Knight('Sir Lancelot', 10)
 second_knight = Knight("Sir Galahad", 20)
+
 first_knight.start()
+
 second_knight.start()
 
 first_knight.join()
