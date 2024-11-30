@@ -8,7 +8,6 @@ def read_info(name):
         for line in file:
             all_data.append(line)
 
-
 if __name__ == '__main__':
     filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
